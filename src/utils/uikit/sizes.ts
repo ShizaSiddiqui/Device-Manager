@@ -1,0 +1,16 @@
+export const CommonSizes = {
+	XXXSmallest: 3,
+	XXSmallest: 5,
+	XSmallest: 8,
+	Smallest: 10,
+	Smaller: 12,
+	Small: 14,
+	Medium: 16,
+	Big: 18,
+	Bigger: 20,
+	Biggest: 24,
+	Large: 26,
+	XLarge: 28,
+	XXLarge: 32,
+	XXXLarge: 36,
+};
