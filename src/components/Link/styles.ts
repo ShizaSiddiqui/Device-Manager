@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { CommonSizes } from "../../utils/uikit/sizes";
+import { conventionalSizes } from "../../utils/res/size";
 
 export const Container = styled.TouchableOpacity`
 	flex-direction: row;
@@ -7,10 +7,10 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Span = styled.Text`
-	font-size: ${CommonSizes.Smaller}px;
+	font-size: ${conventionalSizes.Smaller}px;
 	font-weight: bold;
 	opacity: 0.8;
 	color: ${props => props.theme.Colors.link};
-	margin-top: ${CommonSizes.XXXSmallest}px;
-	margin-bottom: ${CommonSizes.XXXSmallest}px;
+	margin-top: ${conventionalSizes.XXXSmallest}px;
+	margin-bottom: ${conventionalSizes.XXXSmallest}px;
 `;

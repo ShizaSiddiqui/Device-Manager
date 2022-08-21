@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import { ThemeProvider } from "styled-components/native";
 import Header from "../index";
-import { Dark } from "../../../utils/uikit/themes/darkTheme";
+import { Dark } from "../../../utils/res/themes/darkTheme";
 
 const mockedNavigate = jest.fn();
 jest.mock("@react-navigation/native", () => ({
@@ -43,7 +43,7 @@ describe("Test Header Component", () => {
 	it("Should call switch theme dispatcher on icon click", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
-				<Header settings title="Dummy Title" />
+				<Header darkMode title="Dummy Title" />
 			</ThemeProvider>
 		);
 		const element = queryByTestId("toggleBtn");

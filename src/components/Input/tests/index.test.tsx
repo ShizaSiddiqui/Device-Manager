@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react-native";
 import { ThemeProvider } from "styled-components/native";
 import Input from "../index";
-import { Dark } from "../../../utils/uikit/themes/darkTheme";
+import { Dark } from "../../../utils/res/themes/darkTheme";
 
 const mockedChangeText = jest.fn();
 

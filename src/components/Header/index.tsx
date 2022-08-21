@@ -1,29 +1,29 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { Feather , Foundation} from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
 import { useTheme } from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
 
-import * as S from "./styles";
-import { CommonSizes } from "../../utils/uikit/sizes";
-import { toggleTheme } from "../../store/modules/theme/action";
+import * as Styles from "./styles";
+import { conventionalSizes } from "../../utils/res/size";
+import { toggleTheme } from "../../redux-saga/modules/theme/action";
 
-interface IHeader {
+interface HeaderContainer {
 	title: string;
 	goBack?: boolean;
-	settings?: boolean;
+	darkMode?: boolean;
 }
 
-const Header: React.FC<IHeader> = ({ title, goBack, settings }) => {
+const Header: React.FC<HeaderContainer> = ({ title, goBack, darkMode }) => {
 	const { Colors } = useTheme();
 	const navigation = useNavigation();
 	const dispatcher = useDispatch();
 
 	return (
 		<React.Fragment>
-			<S.StatusBarContainer />
-			<S.Container>
+			<Styles.StatusBarContainer />
+			<Styles.Container>
 				{goBack ? (
 					<TouchableOpacity
 						testID="goBackBtn"
@@ -32,30 +32,30 @@ const Header: React.FC<IHeader> = ({ title, goBack, settings }) => {
 						<Feather
 							name="chevron-left"
 							color={Colors.icon}
-							size={CommonSizes.Biggest}
+							size={conventionalSizes.Biggest}
 						/>
 					</TouchableOpacity>
 				) : (
-					<S.Empty />
+					<Styles.Empty />
 				)}
 				<View>
-					<S.Title testID="headerTitle">{title}</S.Title>
+					<Styles.Title testID="headerTitle">{title}</Styles.Title>
 				</View>
-				{settings ? (
+				{darkMode ? (
 					<TouchableOpacity
 						testID="toggleBtn"
 						onPress={() => dispatcher(toggleTheme())}
 					>
-						<Feather
-							name="settings"
+						<Foundation
+							name="lightbulb"
 							color={Colors.icon}
-							size={CommonSizes.Biggest}
+							size={conventionalSizes.Biggest}
 						/>
 					</TouchableOpacity>
 				) : (
-					<S.Empty />
+					<Styles.Empty />
 				)}
-			</S.Container>
+			</Styles.Container>
 		</React.Fragment>
 	);
 };

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { CommonSizes } from "../../utils/uikit/sizes";
+import { conventionalSizes } from "../../utils/res/size";
 
 interface ContainerProps {
 	isFocused: boolean;
@@ -13,13 +13,13 @@ export const Container = styled.View<ContainerProps>`
 	width: 100%;
 	min-height: 62px;
 
-	padding-left: ${CommonSizes.Small}px;
-	padding-right: ${CommonSizes.Small}px;
-	margin-top: ${CommonSizes.XSmallest}px;
-	margin-bottom: ${CommonSizes.Small}px;
+	padding-left: ${conventionalSizes.Small}px;
+	padding-right: ${conventionalSizes.Small}px;
+	margin-top: ${conventionalSizes.XSmallest}px;
+	margin-bottom: ${conventionalSizes.Small}px;
 
 	background-color: ${props => props.theme.Colors.input};
-	border-radius: ${CommonSizes.Smallest}px;
+	border-radius: ${conventionalSizes.Smallest}px;
 	${containerProps =>
 		containerProps.isFocused &&
 		css`
@@ -36,12 +36,12 @@ export const Container = styled.View<ContainerProps>`
 
 export const Label = styled.Text`
 	color: ${props => props.theme.Colors.primaryText};
-	font-size: ${CommonSizes.Medium}px;
+	font-size: ${conventionalSizes.Medium}px;
 `;
 
 export const TextInput = styled.TextInput`
 	flex: 1;
 	height: 80%;
-	margin-left: ${CommonSizes.Small}px;
+	margin-left: ${conventionalSizes.Small}px;
 	color: ${props => props.theme.Colors.primaryText};
 `;

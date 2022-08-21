@@ -3,8 +3,8 @@ import { Feather } from "@expo/vector-icons";
 import { TouchableOpacityProps } from "react-native";
 import { useTheme } from "styled-components/native";
 
-import * as S from "./styles";
-import { CommonSizes } from "../../utils/uikit/sizes";
+import * as Styles from "./styles";
+import { conventionalSizes } from "../../utils/res/size";
 
 interface ILink extends TouchableOpacityProps {
 	label: string;
@@ -15,14 +15,14 @@ const Link: React.FC<ILink> = ({ label, ...touchableProps }) => {
 	const { Colors } = useTheme();
 
 	return (
-		<S.Container testID="linkContainer" {...touchableProps}>
-			<S.Span testID="linkLabel">{label}</S.Span>
+		<Styles.Container testID="linkContainer" {...touchableProps}>
+			<Styles.Span testID="linkLabel">{label}</Styles.Span>
 			<Feather
 				name="chevron-right"
 				color={Colors.link}
-				size={CommonSizes.Smaller}
+				size={conventionalSizes.Smaller}
 			/>
-		</S.Container>
+		</Styles.Container>
 	);
 };
 

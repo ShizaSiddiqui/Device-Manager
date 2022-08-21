@@ -1,20 +1,20 @@
 import styled from "styled-components/native";
 import Constants from "expo-constants";
-import { CommonSizes } from "../../utils/uikit/sizes";
+import { conventionalSizes } from "../../utils/res/size";
 
 export const Container = styled.View`
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 
-	padding: ${CommonSizes.Bigger}px;
+	padding: ${conventionalSizes.Bigger}px;
 
 	background-color: ${props => props.theme.Colors.statusBar};
 `;
 
 export const Empty = styled.View`
-	width: ${CommonSizes.Biggest}px;
-	height: ${CommonSizes.Biggest}px;
+	width: ${conventionalSizes.Biggest}px;
+	height: ${conventionalSizes.Biggest}px;
 `;
 
 export const StatusBarContainer = styled.View`
@@ -23,7 +23,7 @@ export const StatusBarContainer = styled.View`
 `;
 
 export const Title = styled.Text`
-	font-size: ${CommonSizes.Bigger}px;
+	font-size: ${conventionalSizes.Bigger}px;
 	font-weight: bold;
 	color: ${props => props.theme.Colors.primaryText};
 `;

@@ -3,17 +3,17 @@ import Feather from "@expo/vector-icons/Feather";
 import { TextInputProps } from "react-native";
 import { useTheme } from "styled-components/native";
 
-import * as S from "./styles";
-import { CommonSizes } from "../../utils/uikit/sizes";
+import * as Styles from "./styles";
+import { conventionalSizes } from "../../utils/res/size";
 
-interface IInput extends TextInputProps {
+interface FormInputLayout extends TextInputProps {
 	iconName: string;
 	error?: string;
 	label?: string;
 	focusCb?: () => void;
 }
 
-const Input: React.FC<IInput> = ({
+const Input: React.FC<FormInputLayout> = ({
 	iconName,
 	focusCb,
 	label,
@@ -25,16 +25,16 @@ const Input: React.FC<IInput> = ({
 
 	return (
 		<React.Fragment>
-			{label && <S.Label testID="inputLabel">{label}</S.Label>}
-			<S.Container testID="inputContainer" error={error} isFocused={focused}>
+			{label && <Styles.Label testID="inputLabel">{label}</Styles.Label>}
+			<Styles.Container testID="inputContainer" error={error} isFocused={focused}>
 				<Feather
-					size={CommonSizes.Big}
+					size={conventionalSizes.Big}
 					color={Colors.icon}
 					name={iconName as any}
 				/>
-				<S.TextInput
+				<Styles.TextInput
 					testID="textField"
-					placeholderTextColor={`${Colors.primaryText}80`}
+					placeholderTextColor={`${Colors.placeholder}`}
 					onFocus={() => {
 						if (focusCb) {
 							focusCb();
@@ -44,7 +44,7 @@ const Input: React.FC<IInput> = ({
 					onBlur={() => setFocused(false)}
 					{...rest}
 				/>
-			</S.Container>
+			</Styles.Container>
 		</React.Fragment>
 	);
 };
