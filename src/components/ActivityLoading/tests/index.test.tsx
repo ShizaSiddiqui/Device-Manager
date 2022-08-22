@@ -15,8 +15,23 @@ jest.mock("react-redux", () => ({
 	useDispatch: () => mockedUseDispatch,
 }));
 
-describe("Test Header Component", () => {
-	it("Should NOT render if prop visible is false", () => {
+
+
+describe("Header View Component", () => {
+
+  it("Should render correctly if prop loading is true", () => {
+		const { queryByTestId } = render(
+			<ThemeProvider theme={Dark}>
+				<LoadingOverlayer loading />
+			</ThemeProvider>
+		);
+		const element = queryByTestId("activityLoader");
+
+		expect(element).not.toBeNull();
+	});
+
+
+	it("Should NOT render if prop loading is false", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
 				<LoadingOverlayer loading={false} />
@@ -27,14 +42,5 @@ describe("Test Header Component", () => {
 		expect(element).toBeNull();
 	});
 
-	it("Should render correctly if prop visible is true", () => {
-		const { queryByTestId } = render(
-			<ThemeProvider theme={Dark}>
-				<LoadingOverlayer loading />
-			</ThemeProvider>
-		);
-		const element = queryByTestId("activityLoader");
 
-		expect(element).not.toBeNull();
-	});
 });

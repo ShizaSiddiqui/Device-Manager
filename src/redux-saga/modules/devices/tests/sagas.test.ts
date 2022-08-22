@@ -9,7 +9,7 @@ import { mockDeviceWithOwner } from "./mocks";
 
 const deviceWithOwner = mockDeviceWithOwner();
 
-describe("Devices sagas", () => {
+describe("Test Devices Sagas", () => {
 	it("Should call registerDeviceSuccess action on handle registerDevice", async () => {
 		const dispatched: any = [];
 		const action = {
@@ -76,7 +76,7 @@ describe("Devices sagas", () => {
 
 	it("Should call quote api correctly", () => {
 		const gen = Saga.showQuote();
-		expect(gen.next().value).toEqual(call(quoteApi.get, "/today"));
+		expect(gen.next().value).toEqual(call(quoteApi.get,''));
 	});
 
 	it("Should call quoteDialog if quoteApi request returns success", () => {

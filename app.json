@@ -1,16 +1,14 @@
 {
   "expo": {
-    "name": "Proximus",
-    "slug": "proximus",
+    "name": "device_manager",
+    "slug": "device_manager",
     "ios": {
       "usesIcloudStorage": true
     },
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "description": "",
-    "githubUrl": "https://github.com/DanielJ06/ProximusChallenge"
+    ]
   },
-  "name": "prx"
+  "name": "device_manager"
 }

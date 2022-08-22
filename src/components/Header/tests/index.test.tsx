@@ -4,6 +4,12 @@ import { ThemeProvider } from "styled-components/native";
 import Header from "../index";
 import { Dark } from "../../../utils/res/themes/darkTheme";
 
+
+const mockedUseDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+	useDispatch: () => mockedUseDispatch,
+}));
+
 const mockedNavigate = jest.fn();
 jest.mock("@react-navigation/native", () => ({
 	useNavigation: () => ({
@@ -11,12 +17,19 @@ jest.mock("@react-navigation/native", () => ({
 	}),
 }));
 
-const mockedUseDispatch = jest.fn();
-jest.mock("react-redux", () => ({
-	useDispatch: () => mockedUseDispatch,
-}));
+
 
 describe("Test Header Component", () => {
+	it("Should render Title with prop content", () => {
+		const { queryByTestId } = render(
+			<ThemeProvider theme={Dark}>
+				<Header goBack title="Dummy Title" />
+			</ThemeProvider>
+		);
+		const element = queryByTestId("headerTitle");
+		expect(element.props.children).toBe("Dummy Title");
+	});
+
 	it("Should render chevron", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
@@ -28,7 +41,7 @@ describe("Test Header Component", () => {
 		expect(element).not.toBeNull();
 	});
 
-	it("Should call GoBack on chevron click", () => {
+	it("Should call goBack on chevron click", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
 				<Header goBack title="Dummy Title" />
@@ -52,13 +65,5 @@ describe("Test Header Component", () => {
 		expect(mockedUseDispatch).toBeCalled();
 	});
 
-	it("Should render Title with prop content", () => {
-		const { queryByTestId } = render(
-			<ThemeProvider theme={Dark}>
-				<Header goBack title="Dummy Title" />
-			</ThemeProvider>
-		);
-		const element = queryByTestId("headerTitle");
-		expect(element.props.children).toBe("Dummy Title");
-	});
+
 });

@@ -13,6 +13,17 @@ jest.mock("@react-navigation/native", () => ({
 const mockerOnPress = jest.fn();
 
 describe("Test FilledButton Component", () => {
+
+	it("Should render button title correctly", () => {
+		const { queryByTestId } = render(
+			<ThemeProvider theme={Dark}>
+				<FilledButton text="Dummy title" onPress={mockerOnPress} />
+			</ThemeProvider>
+		);
+		const element = queryByTestId("buttonTitle");
+		expect(element.props.children).toBe("Dummy title");
+	});
+
 	it("Should call prop onPress function", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
@@ -25,13 +36,5 @@ describe("Test FilledButton Component", () => {
 		expect(mockerOnPress).toBeCalled();
 	});
 
-	it("Should render button title correctly", () => {
-		const { queryByTestId } = render(
-			<ThemeProvider theme={Dark}>
-				<FilledButton text="Dummy title" onPress={mockerOnPress} />
-			</ThemeProvider>
-		);
-		const element = queryByTestId("buttonTitle");
-		expect(element.props.children).toBe("Dummy title");
-	});
+
 });

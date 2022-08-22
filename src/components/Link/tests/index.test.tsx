@@ -13,25 +13,27 @@ jest.mock("@react-navigation/native", () => ({
 const mockerOnPress = jest.fn();
 
 describe("Test Link Component", () => {
-	it("Should render Span with prop label", () => {
+	
+it("Should call prop onPress function", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
 				<Link label="Dummy label" onPress={mockerOnPress} />
 			</ThemeProvider>
 		);
-		const element = queryByTestId("linkLabel");
-		expect(element.props.children).toBe("Dummy label");
-	});
-
-	it("Should call prop onPress function", () => {
-		const { queryByTestId } = render(
-			<ThemeProvider theme={Dark}>
-				<Link label="Dummy label" onPress={mockerOnPress} />
-			</ThemeProvider>
-		);
-		const element = queryByTestId("linkContainer");
+		const element = queryByTestId("showMoreContainer");
 		fireEvent.press(element);
 
 		expect(mockerOnPress).toBeCalled();
 	});
+
+  it("Should render Span with prop label", () => {
+		const { queryByTestId } = render(
+			<ThemeProvider theme={Dark}>
+				<Link label="Dummy label" onPress={mockerOnPress} />
+			</ThemeProvider>
+		);
+		const element = queryByTestId("btnLabel");
+		expect(element.props.children).toBe("Dummy label");
+	});
+
 });

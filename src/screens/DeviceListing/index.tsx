@@ -17,7 +17,7 @@ import parserApi from "../../network/csvToJsonApi";
 import DeviceCard from "../../components/DeviceInfoCard";
 import Header from "../../components/Header";
 import AddButton from "../../components/AddButton";
-import OutlineButton from "../../components/BorderButton";
+import FilledButton from "../../components/BorderButton";
 import { RootState } from "../../utils/interface/RootInterface";
 import { Device } from "../../utils/interface/deviceInfoInterface";
 import LoadingOverlayer from "../../components/ActivityLoading";
@@ -96,14 +96,14 @@ const DeviceListing: React.FC = () => {
 			<Styles.Container>
 				<Styles.ActionsContainer>
 					<Styles.BtnContainer>
-						<OutlineButton
+						<FilledButton
 							disabled={devices.length < 1}
 							onPress={() => handleExport()}
 							text="Export"
 						/>
 					</Styles.BtnContainer>
 					<Styles.BtnContainer>
-						<OutlineButton onPress={() => handleImport()} text="Import" />
+						<FilledButton onPress={() => handleImport()} text="Import" />
 					</Styles.BtnContainer>
 				</Styles.ActionsContainer>
 			{devices.length> 0 ?	

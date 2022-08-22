@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react-native";
 import { ThemeProvider } from "styled-components/native";
-import OutlineButton from "../index";
+import FilledButton from "../index";
 import { Dark } from "../../../utils/res/themes/darkTheme";
 
 const mockedNavigate = jest.fn();
@@ -12,11 +12,11 @@ jest.mock("@react-navigation/native", () => ({
 
 const mockerOnPress = jest.fn();
 
-describe("Test OutlineButton Component", () => {
+describe("Test FilledButton Component", () => {
 	it("Should call prop onPress function", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
-				<OutlineButton text="Dummy title" onPress={mockerOnPress} />
+				<FilledButton text="Dummy title" onPress={mockerOnPress} />
 			</ThemeProvider>
 		);
 		const element = queryByTestId("buttonContainer");
@@ -28,7 +28,7 @@ describe("Test OutlineButton Component", () => {
 	it("Should render button title correctly", () => {
 		const { queryByTestId } = render(
 			<ThemeProvider theme={Dark}>
-				<OutlineButton text="Dummy title" onPress={mockerOnPress} />
+				<FilledButton text="Dummy title" onPress={mockerOnPress} />
 			</ThemeProvider>
 		);
 		const element = queryByTestId("buttonTitle");

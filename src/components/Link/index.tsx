@@ -15,8 +15,8 @@ const Link: React.FC<ILink> = ({ label, ...touchableProps }) => {
 	const { Colors } = useTheme();
 
 	return (
-		<Styles.Container testID="linkContainer" {...touchableProps}>
-			<Styles.Span testID="linkLabel">{label}</Styles.Span>
+		<Styles.Container testID="showMoreContainer" {...touchableProps}>
+			<Styles.Span testID="btnLabel">{label}</Styles.Span>
 			<Feather
 				name="chevron-right"
 				color={Colors.link}

@@ -17,7 +17,7 @@ import Header from "../../components/Header";
 import Input from "../../components/Input";
 import KeyboardWrapper from "../../components/KeyboardAvoidingWrapper";
 import FilledButton from "../../components/FilledButton";
-import OutlineButton from "../../components/BorderButton";
+import FilledButton from "../../components/BorderButton";
 import LoadingOverlayer from "../../components/ActivityLoading";
 import { RootState } from "../../utils/interface/RootInterface";
 import { Device } from "../../utils/interface/deviceInfoInterface";
@@ -169,7 +169,7 @@ const DeviceInfo: React.FC = () => {
 								/>
 								<FilledButton text="Submit" onPress={() => handleSubmit()} />
 								{routes.params.edit && (
-									<OutlineButton
+									<FilledButton
 										text="Delete"
 										onPress={() => handleDelete(deviceId)}
 									/>
