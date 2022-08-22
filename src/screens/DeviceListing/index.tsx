@@ -94,18 +94,7 @@ const DeviceListing: React.FC = () => {
 		<>
 		<Header title="Test Device" darkMode />
 			<Styles.Container>
-				<Styles.ActionsContainer>
-					<Styles.BtnContainer>
-						<FilledButton
-							disabled={devices.length < 1}
-							onPress={() => handleExport()}
-							text="Export"
-						/>
-					</Styles.BtnContainer>
-					<Styles.BtnContainer>
-						<FilledButton onPress={() => handleImport()} text="Import" />
-					</Styles.BtnContainer>
-				</Styles.ActionsContainer>
+				
 			{devices.length> 0 ?	
       (<FlatList
 					data={devices}
@@ -120,6 +109,19 @@ const DeviceListing: React.FC = () => {
 				<AddButton
 					onPress={() => navigation.navigate("DeviceInfo", { edit: false })}
 				/>
+        <Styles.ActionsContainer>
+          <Styles.BtnContainer>
+						<FilledButton onPress={() => handleImport()} text="Import" />
+					</Styles.BtnContainer>
+					<Styles.BtnContainer>
+						<FilledButton
+							disabled={devices.length < 1}
+							onPress={() => handleExport()}
+							text="Export"
+						/>
+					</Styles.BtnContainer>
+					
+				</Styles.ActionsContainer>
 			</Styles.Container>
 			{/* <LoadingOverlayer loading={importLoading} /> */}
 		</>

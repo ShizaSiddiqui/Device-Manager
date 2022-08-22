@@ -3,7 +3,7 @@ import { conventionalSizes } from "../../utils/res/size";
 
 export const Container = styled.TouchableOpacity`
 	position: absolute;
-	bottom: ${conventionalSizes.XXXLarge}px;
+	bottom: ${conventionalSizes.XXXLarge+90}px;
 	right: ${conventionalSizes.XXXLarge}px;
 	padding: ${conventionalSizes.Small}px;
 

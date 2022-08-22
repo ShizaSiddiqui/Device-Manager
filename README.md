@@ -1,7 +1,10 @@
 # Testing Device Manager
 
 # Technology Stack:
-React Native CLI, TypeScript, Redux-Saga
+React Native CLI, TypeScript, Redux-Saga, Jest
+
+# View Screen Recordings and Screenshots
+https://drive.google.com/drive/folders/1Nq6BpEf9msDuQlhJP8A-SYvyg8rJUQ_5?usp=sharing
 
 # Features: 
 

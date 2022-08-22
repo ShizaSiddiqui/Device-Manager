@@ -10,6 +10,7 @@ import { Dark } from "./src/utils/res/themes/darkTheme";
 import { Light } from "./src/utils/res/themes/lightTheme";
 import { RootState } from "./src/utils/interface/RootInterface";
 import { navigationRef } from "./src/utils/RootNavigation";
+import { LogBox } from "react-native";
 
 const AppContent = () => {
 	const theme = useSelector((state: RootState) => state.theme);
@@ -25,7 +26,7 @@ const AppContent = () => {
 };
 
 export default function App() {
-
+LogBox.ignoreAllLogs();
 	return (
 		<StoreProvider store={store}>
 			<AppContent />
